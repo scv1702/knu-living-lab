@@ -14,7 +14,7 @@ const ProductDetail: NextPage = () => {
   const [isLoading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/api/products/${category}/${name}`)
+    fetch(`/api/products/${category}/${name}`)
       .then((res) => res.json())
       .then((data) => {
         setProductDetails(data);

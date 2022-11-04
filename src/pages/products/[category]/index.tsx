@@ -13,7 +13,7 @@ const ProductList: NextPage = () => {
   const [isLoading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/api/products/${category}`)
+    fetch(`/api/products/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
