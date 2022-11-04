@@ -1,23 +1,20 @@
-import ProductCard from "../../../components/ProductCard";
-import type { Product } from "../../../types/Product";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { NextPage } from "next";
 import { BodyLayout } from "../../../components/BodyLayout";
 import Search from "../../../components/Search";
+import ProductCard from "../../../components/ProductCard";
+import type { Product } from "../../../types/Product";
 
 const ProductList: NextPage = () => {
   const router = useRouter();
   const { category } = router.query;
   const [products, setProducts] = useState(Array<Product>);
-  const [isLoading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true);
     fetch(`/api/products/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        setLoading(false);
       });
   }, [category]);
   let _category = "";

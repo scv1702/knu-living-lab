@@ -2,15 +2,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as fs from "fs";
 import csv from "csv-parser";
-import clientPromise from "../../../lib/mongodb";
 import { Product } from "../../../types/Product";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const client = await clientPromise;
-  const db = client.db("penny-pincher");
   const results: Product[] = [];
   fs.createReadStream("data/products.csv")
     .pipe(csv())

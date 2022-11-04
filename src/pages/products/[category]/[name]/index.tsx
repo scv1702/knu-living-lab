@@ -11,14 +11,11 @@ const ProductDetail: NextPage = () => {
   const router = useRouter();
   const { category, name } = router.query;
   const [productDetails, setProductDetails] = useState(Array<Product>);
-  const [isLoading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true);
     fetch(`/api/products/${category}/${name}`)
       .then((res) => res.json())
       .then((data) => {
         setProductDetails(data);
-        setLoading(false);
       });
   }, [name]);
   return (

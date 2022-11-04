@@ -1,9 +1,8 @@
 import Link from "next/link";
-import Sidebar from "./Sidebar";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { ReactNode } from "react";
 import Logo from "./Logo";
-
+import Sidebar from "./Sidebar";
 export function BodyLayout({ children }: { children: ReactNode }) {
   return (
     <>
